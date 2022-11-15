@@ -17,51 +17,51 @@ export default function Login({navigation}) {
   const [opacity] = useState(new Animated.Value(0));
   const [logo] = useState(new Animated.ValueXY({x:250, y:270}));
 
-  useEffect(() => {
-    keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow)
-    keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide)
+    useEffect(() => {
+      keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow)
+      keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide)
 
-    Animated.parallel([
-      Animated.spring(offset.y, {
-        toValue: 0,
-        speed: 4,
-        bounciness: 10,
-      }),
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 200,
-      }),
-    ]).start();
-  }, []);
+      Animated.parallel([
+        Animated.spring(offset.y, {
+          toValue: 0,
+          speed: 4,
+          bounciness: 10,
+        }),
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 200,
+        }),
+      ]).start();
+    }, []);
 
-  function keyboardDidShow(){
+    function keyboardDidShow(){
 
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 90,
-        duration: 100,
-      }),
-      Animated.timing(logo.y, {
-        toValue: 70,
-        duration: 100,
-      }),
-    ]).start();
-  }
+      Animated.parallel([
+        Animated.timing(logo.x, {
+          toValue: 90,
+          duration: 100,
+        }),
+        Animated.timing(logo.y, {
+          toValue: 70,
+          duration: 100,
+        }),
+      ]).start();
+    }
 
-  function keyboardDidHide(){
+    function keyboardDidHide(){
 
-    Animated.parallel([
-      Animated.timing(logo.x, {
-        toValue: 250,
-        duration: 100,
-      }),
-      Animated.timing(logo.y, {
-        toValue: 270,
-        duration: 100,
-      }),
-    ]).start();
+      Animated.parallel([
+        Animated.timing(logo.x, {
+          toValue: 250,
+          duration: 100,
+        }),
+        Animated.timing(logo.y, {
+          toValue: 270,
+          duration: 100,
+        }),
+      ]).start();
 
-  }
+    }
 
   return (
     <KeyboardAvoidingView style={styles.background}>
@@ -108,7 +108,7 @@ export default function Login({navigation}) {
         </TouchableOpacity>
         
         <TouchableOpacity 
-         onPress={() => navigation.navigate('resetPassword')}
+         onPress={() => navigation.navigate('ResetPassword')}
          style={styles.btnRegister}>
           <Text style={styles.registerText}> Esqueci a senha</Text>
         </TouchableOpacity>
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#191919',
+    backgroundColor: '#121212',
   },
   containerLogo: {
     flex: 0.7,

@@ -7,6 +7,8 @@ import Login from './src/screens/login'
 import Home from './src/screens/home';
 import Register from './src/screens/register';
 import ResetPassword from './src/screens/resetPassword';
+import EmergencyNumbers from './src/screens/numbers';
+import Complaint from './src/screens/complaint';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +24,7 @@ function App() {
             headerTintColor: "#fff",
             headerTitleAlign: 'center',
           }} />
+
           <Stack.Screen name='Home' component={Home} options={{
             headerStyle: {
               backgroundColor: "#bf4b2e",
@@ -29,6 +32,7 @@ function App() {
             headerTintColor: "#fff",
             headerTitleAlign: 'center',
           }} />
+
           <Stack.Screen name='Register' component={Register} options={{
             headerStyle: {
               backgroundColor: "#bf4b2e",
@@ -37,6 +41,7 @@ function App() {
             headerTitleAlign: 'center',
             title:'Cadastro',
           }} />
+
           <Stack.Screen name='ResetPassword' component={ResetPassword} options={{
             headerStyle: {
               backgroundColor: "#bf4b2e",
@@ -44,7 +49,25 @@ function App() {
             headerTintColor: "#fff",
             headerTitleAlign: 'center',
             title:'Redefinição de Senha',
-            }} />
+          }} />
+
+          <Stack.Screen name='EmergencyNumbers' component={EmergencyNumbers} options={{
+            headerStyle: {
+              backgroundColor: "#bf4b2e",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: 'center',
+            title:'Números de Emergência',
+          }} />
+
+          <Stack.Screen name='Complaint' component={Complaint} options={{
+            headerStyle: {
+              backgroundColor: "#bf4b2e",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: 'center',
+            title:'Denúncia',
+          }} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

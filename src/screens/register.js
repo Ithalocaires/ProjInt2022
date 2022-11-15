@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#191919',
+      backgroundColor: '#121212',
     },
     textWelcome: {
       color: '#FFF',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
       flex: 0.2,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#191919',
+      backgroundColor: '#121212',
     },
     input: {
         backgroundColor: '#FFF',

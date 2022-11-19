@@ -1,26 +1,58 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Animated,} from 'react-native';
+import {View, Text, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Animated, Keyboard} from 'react-native';
 
 
 
 function Complaint(){
-    const [offset] = useState(new Animated.ValueXY({x: 0, y: 80}));
-    const [opacity] = useState(new Animated.Value(0));
-    const [logo] = useState(new Animated.ValueXY({x:250, y:270}));
+  const [offset] = useState(new Animated.ValueXY({x: 0, y: 80}));
+  const [opacity] = useState(new Animated.Value(0));
+  const [logo] = useState(new Animated.ValueXY({x:400, y:500}));
 
-    useEffect(() => {  
-        Animated.parallel([
-          Animated.spring(offset.y, {
-            toValue: 0,
-            speed: 4,
-            bounciness: 10,
-          }),
-          Animated.timing(opacity, {
-            toValue: 1,
-            duration: 200,
-          }),
-        ]).start();
-      }, []);
+  useEffect(() => {
+    keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow)
+    keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide)
+
+    Animated.parallel([
+      Animated.spring(offset.y, {
+        toValue: 0,
+        speed: 4,
+        bounciness: 10,
+      }),
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 200,
+      }),
+    ]).start();
+  }, []);
+
+  function keyboardDidShow(){
+
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 400,
+        duration: 20,
+      }),
+      Animated.timing(logo.y, {
+        toValue: 260,
+        duration: 20,
+      }),
+    ]).start();
+  }
+
+  function keyboardDidHide(){
+
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 400,
+        duration: 20,
+      }),
+      Animated.timing(logo.y, {
+        toValue: 500,
+        duration: 20,
+      }),
+    ]).start();
+
+  }
 
     return(
         <SafeAreaView style={styles.background}>

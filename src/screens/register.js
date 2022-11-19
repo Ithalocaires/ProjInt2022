@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
       fontSize: 20,
     },
     viewWelcome: {
-      flex: 0.2,
-      justifyContent: 'center',
+      flex: 0.4,
+      justifyContent: 'flex-start',
       alignItems: 'center',
       backgroundColor: '#121212',
     },

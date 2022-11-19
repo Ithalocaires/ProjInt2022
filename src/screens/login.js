@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import {
   KeyboardAvoidingView,
   View,
@@ -12,10 +12,24 @@ import {
 } from 'react-native';
 
 
+
 export default function Login({navigation}) {
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 80}));
   const [opacity] = useState(new Animated.Value(0));
   const [logo] = useState(new Animated.ValueXY({x:250, y:270}));
+  const [cpf, setCpf] = useState(null);
+  const [password,setPassword] = useState(null);
+
+  //Login func
+
+  /*
+  async function doLogin()
+  {
+    let reqs = await fetch
+  }
+  */
+
+
 
     useEffect(() => {
       keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow)
@@ -83,16 +97,18 @@ export default function Login({navigation}) {
           },
         ]}>
         <TextInput
+          maxLength={11}
+          keyboardType='number-pad'
           style={styles.input}
           placeholder="CPF"
           autoCorrect={false}
-          onChangeText={() => {}}
+          onChangeText={(text) => setCpf(text)}
         />
         <TextInput
           style={styles.input}
           placeholder="Senha"
           autoCorrect={false}
-          onChangeText={() => {}}
+          onChangeText={(text) => setPassword(text)}
           secureTextEntry={true}
         />
         <TouchableOpacity

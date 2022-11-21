@@ -10,6 +10,7 @@ import {
   Animated,
   Keyboard,
 } from 'react-native';
+import config from "/ProjInt2022/config/config.json"
 
 
 
@@ -22,12 +23,23 @@ export default function Login({navigation}) {
 
   //Login func
 
-  /*
+  
   async function doLogin()
   {
-    let reqs = await fetch
+    let reqs = await fetch(config.urlRootPhp+'Controller.php',{
+      method: 'POST',
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application;json'
+      },
+      body: Json.stringfy({
+        cpfUser: cpf,
+        passwordUser: password
+      })
+    });
+    let ress = await reqs.json();
   }
-  */
+  
 
 
 

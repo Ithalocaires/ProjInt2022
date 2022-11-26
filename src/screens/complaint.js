@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Animated, Keyboard} from 'react-native';
+import Icon from '/ProjInt2022/node_modules/react-native-vector-icons/Entypo'
+
 
 
 

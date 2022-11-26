@@ -89,6 +89,13 @@ export default function Login({navigation}) {
 
     }
 
+    const checkTextinput = () => {
+      if (!setCpf.trim()){
+        alert('Insira o CPF');
+        return;
+      } 
+    }
+
   return (
     <KeyboardAvoidingView style={styles.background}>
       <View style={styles.containerLogo} >
@@ -124,6 +131,7 @@ export default function Login({navigation}) {
           secureTextEntry={true}
         />
         <TouchableOpacity
+         disabled = {setCpf.length < 0}
          onPress={() => navigation.navigate('Home')}
          style={styles.btnSubmit}>
           <Text style={styles.submitText}> Acessar </Text>

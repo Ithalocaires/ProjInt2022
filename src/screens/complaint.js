@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, Image, SafeAreaView, ScrollView, TouchableOpacity, TextInput, Animated, Keyboard} from 'react-native';
-import Icon from '/ProjInt2022/node_modules/react-native-vector-icons/Entypo'
+import Icon from '/ProjInt2022/node_modules/react-native-vector-icons/AntDesign'
 
 
 
@@ -78,6 +78,12 @@ function Complaint(){
                 multiline={true}
                 placeholderTextColor='#fff'
             />
+            <TouchableOpacity style={styles.roundBtn} o />
+            <Icon
+            name="camera"
+            color="#fff"
+            size={25}
+            />
             <TouchableOpacity
              onPress={() => alert("Denuncia feita com sucesso")}
              style={styles.btnSubmit}>
@@ -91,6 +97,10 @@ function Complaint(){
 export default Complaint;
 
 const styles = StyleSheet.create({
+    icon:{
+      position:'absolute',
+      alignItems:'flex-end',
+    },
     containerAPI: {
       flex: 0.2,
       justifyContent: 'center',
@@ -137,5 +147,13 @@ const styles = StyleSheet.create({
       color: '#fff',
       borderColor: '#5F5F5F'
     },
-  
+    roundBtn: {
+      backgroundColor: "#fff",
+      margin: 20,
+      borderRadius: 150,
+      width: 80,
+      height: 80,
+      alignItems: "center",
+      justifyContent: "center"
+      },
   });

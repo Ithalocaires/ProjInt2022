@@ -25,7 +25,7 @@ function ResetPassword({navigation}) {
         onChangeText={() => {}}
     />
     <TouchableOpacity
-         onPress={() => {alert("Senha alterada com sucesso") ;navigation.navigate('Login')}}
+         onPress={() => {alert( "Concluído","Senha alterada com sucesso") ;navigation.navigate('Login')}}
          style={styles.btnSubmit}>
           <Text style={styles.submitText}> Confirmar </Text>
         </TouchableOpacity>

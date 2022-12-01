@@ -5,10 +5,11 @@ import Icon from '/ProjInt2022/node_modules/react-native-vector-icons/AntDesign'
 
 
 
+
 function Complaint(){
   const [offset] = useState(new Animated.ValueXY({x: 0, y: 80}));
   const [opacity] = useState(new Animated.Value(0));
-  const [logo] = useState(new Animated.ValueXY({x:400, y:500}));
+  const [logo] = useState(new Animated.ValueXY({x:400, y:300}));
 
   useEffect(() => {
     keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow)
@@ -49,7 +50,7 @@ function Complaint(){
         duration: 20,
       }),
       Animated.timing(logo.y, {
-        toValue: 500,
+        toValue: 300,
         duration: 20,
       }),
     ]).start();
@@ -66,7 +67,7 @@ function Complaint(){
                   }}
                 source={require('/ProjInt2022/src/img/testejpeg.jpeg')}/>
             </View>
-            <View style={styles.container}>
+            <View style={styles.containerInput}>
             <TextInput
                 style={styles.input}
                 placeholder="Descreva a denuncia"
@@ -78,14 +79,18 @@ function Complaint(){
                 multiline={true}
                 placeholderTextColor='#fff'
             />
-            <TouchableOpacity style={styles.roundBtn} o />
+            <TouchableOpacity style={styles.roundBtn}>
             <Icon
+            style={styles.icon}
             name="camera"
             color="#fff"
-            size={25}
+            size={20}
             />
+            </TouchableOpacity>
+            </View>
+            <View style={styles.container}>
             <TouchableOpacity
-             onPress={() => alert("Denuncia feita com sucesso")}
+             onPress={() => alert( "Concluído","Denuncia feita com sucesso")}
              style={styles.btnSubmit}>
                 <Text style={styles.submitText}> Enviar denuncia </Text>
             </TouchableOpacity>
@@ -98,8 +103,8 @@ export default Complaint;
 
 const styles = StyleSheet.create({
     icon:{
-      position:'absolute',
       alignItems:'flex-end',
+      justifyContent:'flex-end'
     },
     containerAPI: {
       flex: 0.2,
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
     },
     apiImage:{
       width: 400,
-      height: 400,
+      height: 200,
     },
     background: {
       flex: 1,
@@ -115,11 +120,20 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       backgroundColor: '#121212',
     },
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+    containerInput: {
+      flex:0.2,
+      backgroundColor: '#181818',
+      borderWidth: 2,
+      marginTop: 200,
       width: '90%',
+      marginBottom: 15,
+      color: '#222',
+      fontSize: 17,
+      borderRadius: 7,
+      padding: 10,
+      color: '#fff',
+      borderColor: '#5F5F5F',
+      flexDirection:'row',
     },
     btnSubmit: {
       backgroundColor: '#bf4b2e',
@@ -134,26 +148,21 @@ const styles = StyleSheet.create({
       color: '#fff',
       fontSize: 18,
     },
-    input: {
-      backgroundColor: '#181818',
-      borderWidth: 2,
-      marginTop: 90,
-      width: '98%',
-      marginBottom: 15,
-      color: '#222',
-      fontSize: 17,
-      borderRadius: 7,
-      padding: 10,
-      color: '#fff',
-      borderColor: '#5F5F5F'
-    },
+  
     roundBtn: {
-      backgroundColor: "#fff",
+      marginLeft: 120,
+      backgroundColor: "#bf4b2e",
       margin: 20,
       borderRadius: 150,
-      width: 80,
-      height: 80,
+      width: 50,
+      height: 50,
       alignItems: "center",
       justifyContent: "center"
+      },
+    container: {
+      flex: 0.2,
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '90%',
       },
   });
